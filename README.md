@@ -1,5 +1,11 @@
 # Intune Win32 App Packaging - Kodak Capture Pro Software 7.0.1
 
+Sources: 
+
+https://www.kodakalaris.com/en/capture-pro-extras
+https://www.kodakalaris.com/sites/default/files/2025-02/Kodak%20Capture%20Pro%20Silent%20Install%20Procedure.pdf
+
+
 ## Overview
 
 This repository contains PowerShell scripts used to deploy, remove, and detect **Kodak Capture Pro Software (CapProSW)** and its associated **Kodak License Manager** via Microsoft Intune as a Win32 application package (`.intunewin`).
