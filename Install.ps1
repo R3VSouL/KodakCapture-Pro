@@ -10,9 +10,11 @@
 
 $LicenseKey       = "INSERT LICENSE KEY HERE"
 
-$ScriptDir        = Split-Path -Parent $MyInvocation.MyCommand.Definition
-$LicenseManagerEXE = Join-Path $ScriptDir "KodakLicenseManager_7_0_1.exe"
-$CapProEXE         = Join-Path $ScriptDir "CapProSW_7_0_1.exe"
+# $PSScriptRoot resolves to the directory the script is executing from.
+# When Intune extracts the .intunewin package, all files land in the same
+# temp working directory — $PSScriptRoot reliably points to that location.
+$LicenseManagerEXE = Join-Path $PSScriptRoot "KodakLicenseManager_7_0_1.exe"
+$CapProEXE         = Join-Path $PSScriptRoot "CapProSW_7_0_1.exe"
 
 $LogDir           = "C:\Windows\Logs\Intune"
 $LogFile          = Join-Path $LogDir "CapProSW_Install.log"
