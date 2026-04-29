@@ -126,7 +126,20 @@ $SSN            = "INSERT 16-DIGIT SSN HERE"
 $RegistrationID = "INSERT REGISTRATION ID HERE"
 ```
 
-Before packaging, replace these values with the actual credentials provided by Kodak Alaris. The script includes a validation check that will intentionally fail the deployment if the placeholders have not been replaced. Once populated, the scripts are packaged locally using the Microsoft Win32 Content Prep Tool and uploaded to Intune — the serial numbers exist only within the `.intunewin` package and are never stored in source control.
+**Where to find each value:**
+
+| Variable | Where to Get It |
+|---|---|
+| `$SSN` | The Serial Number field on your Kodak Alaris purchase invoice. This is the 16-digit software license identifier the Kodak Alaris license server uses to validate and activate the installation. Do not use the invoice number, sales order, account number, or item number — those are purchasing and billing references only. |
+| `$RegistrationID` | Not found on the invoice. This is obtained by registering the software with Kodak Alaris separately. Format is `KC12345678`. See instructions below. |
+
+**How to obtain the Registration ID:**
+
+The Registration ID is generated when the software is first registered with Kodak Alaris. It only needs to be obtained once and can be reused across all Capture Pro deployments — you do not need a unique Registration ID per machine.
+
+To obtain it, install and launch the License Manager tool on any internet-connected machine, enter one of your valid SSNs, and click Register. Complete the registration form and the Registration ID will be displayed on the License Manager screen. Alternatively, on a machine with a manual Capture Pro install, go to Help > Register from the application menu.
+
+Before packaging, replace both placeholders in `Install.ps1` with the real values. The script includes a validation check that will intentionally fail the deployment if either placeholder has not been replaced. Once populated, the scripts are packaged locally using the Microsoft Win32 Content Prep Tool and uploaded to Intune — the serial numbers exist only within the `.intunewin` package and are never stored in source control.
 
 ---
 
