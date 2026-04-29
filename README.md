@@ -1,4 +1,4 @@
-# Intune Win32 App Packaging — Kodak Capture Pro Software 7.0.1
+# Intune Win32 App Packaging - Kodak Capture Pro Software 7.0.1
 
 ## Overview
 
